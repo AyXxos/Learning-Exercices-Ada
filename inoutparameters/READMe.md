@@ -1,37 +1,37 @@
-# Paramètres In, Out et In Out en Ada
+# In, Out and In Out Parameters in Ada
 
-## 📚 Objectif
-Ce projet démontre l'utilisation des différents modes de passage de paramètres en Ada : `in`, `out`, et `in out`.
+## 📚 Objective
+This project demonstrates the use of different parameter passing modes in Ada: `in`, `out`, and `in out`.
 
-## 🎯 Concepts clés
+## 🎯 Key Concepts
 
-### Les modes de paramètres
+### Parameter Modes
 
-En Ada, il existe trois modes pour passer des paramètres aux procédures et fonctions :
+In Ada, there are three modes for passing parameters to procedures and functions:
 
-1. **`in`** (par défaut) : Paramètre en lecture seule
-   - La procédure peut lire la valeur mais ne peut pas la modifier
-   - C'est le mode par défaut si aucun n'est spécifié
-   - Utilisé pour passer des données à une procédure sans les modifier
+1. **`in`** (default): Read-only parameter
+   - The procedure can read the value but cannot modify it
+   - This is the default mode if none is specified
+   - Used to pass data to a procedure without modifying it
 
-2. **`out`** : Paramètre en écriture seule
-   - La procédure peut modifier la valeur mais ne peut pas la lire
-   - Utilisé pour retourner des résultats d'une procédure
-   - La valeur d'entrée n'est pas garantie
+2. **`out`**: Write-only parameter
+   - The procedure can modify the value but cannot read it
+   - Used to return results from a procedure
+   - The input value is not guaranteed
 
-3. **`in out`** : Paramètre en lecture/écriture
-   - La procédure peut à la fois lire et modifier la valeur
-   - Utilisé quand on veut modifier une variable existante
-   - Permet les opérations de mise à jour
+3. **`in out`**: Read/write parameter
+   - The procedure can both read and modify the value
+   - Used when you want to modify an existing variable
+   - Allows update operations
 
-## 💻 Code d'exemple
+## 💻 Code Example
 
 ```ada
 with Ada.Text_IO; use Ada.Text_IO;
 
 procedure Inoutparameters is
    
-   -- Procédure avec paramètre IN (lecture seule)
+   -- Procedure with IN parameter (read-only)
    procedure Display_Money (Account : in Float) is
    begin
       Put_Line("You currently have :" & Float'Image(Account));
@@ -45,88 +45,88 @@ begin
 end Inoutparameters;
 ```
 
-### Explication du code
+### Code Explanation
 
-- **`Display_Money`** : Procédure qui affiche le solde d'un compte
-  - Le paramètre `Account` est de type `in Float`
-  - La procédure peut lire la valeur mais ne peut pas la modifier
-  - Cela garantit que le solde original ne sera pas altéré
+- **`Display_Money`**: Procedure that displays an account balance
+  - The `Account` parameter is of type `in Float`
+  - The procedure can read the value but cannot modify it
+  - This ensures that the original balance will not be altered
 
-## 🔧 Exemples d'utilisation
+## 🔧 Usage Examples
 
-### Paramètre `in` (lecture seule)
+### `in` Parameter (read-only)
 ```ada
 procedure Display_Money (Account : in Float) is
 begin
-   Put_Line("Solde : " & Float'Image(Account));
-   -- Account := Account + 100.0; -- ERREUR : on ne peut pas modifier un paramètre IN
+   Put_Line("Balance: " & Float'Image(Account));
+   -- Account := Account + 100.0; -- ERROR: cannot modify an IN parameter
 end Display_Money;
 ```
 
-### Paramètre `out` (écriture seule)
+### `out` Parameter (write-only)
 ```ada
 procedure Calculate_Bonus (Amount : out Float) is
 begin
-   Amount := 150.0;  -- OK : on peut écrire dans un paramètre OUT
-   -- Put_Line(Float'Image(Amount)); -- Peut fonctionner mais non recommandé
+   Amount := 150.0;  -- OK: we can write to an OUT parameter
+   -- Put_Line(Float'Image(Amount)); -- May work but not recommended
 end Calculate_Bonus;
 ```
 
-### Paramètre `in out` (lecture/écriture)
+### `in out` Parameter (read/write)
 ```ada
 procedure Add_Bonus (Account : in out Float; Bonus : in Float) is
 begin
-   Account := Account + Bonus;  -- OK : on peut lire ET modifier
-   Put_Line("Nouveau solde : " & Float'Image(Account));
+   Account := Account + Bonus;  -- OK: we can read AND modify
+   Put_Line("New balance: " & Float'Image(Account));
 end Add_Bonus;
 ```
 
-## 🚀 Compilation et exécution
+## 🚀 Compilation and Execution
 
-### Avec Alire
+### With Alire
 ```bash
-# Compiler le projet
+# Compile the project
 alr build
 
-# Exécuter le programme
+# Run the program
 alr run
 ```
 
-### Avec GNAT directement
+### With GNAT directly
 ```bash
-# Compiler
+# Compile
 gnatmake src/inoutparameters.adb
 
-# Exécuter
+# Execute
 ./inoutparameters
 ```
 
-## 📊 Résultat attendu
+## 📊 Expected Output
 
 ```
 You currently have : 1.00000E+03
 ```
 
-## ⚡ Avantages des modes de paramètres
+## ⚡ Advantages of Parameter Modes
 
-1. **Sécurité** : Le compilateur empêche les modifications accidentelles
-2. **Clarté** : On sait immédiatement si une procédure modifie ses paramètres
-3. **Optimisation** : Le compilateur peut optimiser selon le mode
-4. **Documentation** : Le mode fait partie de l'interface et documente l'intention
+1. **Safety**: The compiler prevents accidental modifications
+2. **Clarity**: You immediately know if a procedure modifies its parameters
+3. **Optimization**: The compiler can optimize based on the mode
+4. **Documentation**: The mode is part of the interface and documents the intent
 
-## 📝 Bonnes pratiques
+## 📝 Best Practices
 
-- Utilisez `in` quand vous n'avez besoin que de lire la valeur
-- Utilisez `out` pour retourner des résultats calculés
-- Utilisez `in out` uniquement quand vous devez modifier une valeur existante
-- Préférez les fonctions pour retourner une seule valeur plutôt qu'un paramètre `out`
+- Use `in` when you only need to read the value
+- Use `out` to return calculated results
+- Use `in out` only when you need to modify an existing value
+- Prefer functions to return a single value rather than an `out` parameter
 
-## 🔗 Ressources
+## 🔗 Resources
 
 - [Ada Reference Manual - Subprogram Parameters](https://www.adaic.org/resources/add_content/standards/12rm/html/RM-6-1.html)
 - [Learn Ada - Subprograms](https://learn.adacore.com/courses/intro-to-ada/chapters/subprograms.html)
 
-## 👤 Auteur
+## 👤 Author
 
 **AyXxos**
 - Website: [ayxxos.netlify.app](https://ayxxos.netlify.app)
