@@ -1,0 +1,11 @@
+name = "arrays"
+description = "To understand arrays"
+version = "0.1.0-dev"
+
+authors = ["AyXxos"]
+maintainers = ["AyXxos <example@example.com>"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = "https://ayxxos.com"
+tags = ["ada", "arrays"]
+
+executables = ["arrays"]
