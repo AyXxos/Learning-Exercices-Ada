@@ -1,0 +1,11 @@
+name = "unconstrainedarrays"
+description = "To understand unconstrained arrays"
+version = "0.1.0-dev"
+
+authors = ["Your Name"]
+maintainers = ["Your Name <example@example.com>"]
+licenses = "MIT OR Apache-2.0 WITH LLVM-exception"
+website = "https://ayxxos.com"
+tags = ["ada", "arrays"]
+
+executables = ["unconstrainedarrays"]
