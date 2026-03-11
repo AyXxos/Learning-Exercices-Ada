@@ -12,7 +12,6 @@ This project implements the core pillars covered in the first 119 pages of *Lear
 
 * **Strong & Scalar Typing:** Extensive use of `range` to define real physical units (Velocity, Volts, Degrees), mathematically preventing overflow and out-of-bounds errors at the language level.
 * **Modularity (Packages):** Strict separation between navigation logic, power management, and the system kernel (`.ads` for interfaces, `.adb` for implementation).
-* **Encapsulation (Private Types):** Use of the `private` keyword to shield critical satellite data from unauthorized or accidental external modification.
 * **Imperative Programming:** Robust control structures, including `case statements` for state machines and `loops` for continuous monitoring cycles.
 * **Records & Arrays:** Complex data structuring for telemetry frames and sensor history logs.
 
