@@ -1,5 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
-with satellite_infos; use satellite_infos;
+with Satellite.Infos; use Satellite.Infos;
 
 procedure Nanosat is
 begin

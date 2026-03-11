@@ -1,6 +1,6 @@
 with Ada.Text_IO; use Ada.Text_IO;
 
-package body satellite_infos is
+package body Satellite.Infos is
 
    procedure Display_Satellite_Infos is
    begin
@@ -18,4 +18,4 @@ package body satellite_infos is
       return Date_Launched;
    end Get_Launch_Date;
 
-end satellite_infos;
+end Satellite.Infos;

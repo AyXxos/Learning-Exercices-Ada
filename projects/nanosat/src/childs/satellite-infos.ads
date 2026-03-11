@@ -1,4 +1,4 @@
-package satellite_infos is
+package Satellite.Infos is
    Name : constant String := "Nanosat";
    Date_Launched : constant String := "2024-06-01";
 
@@ -7,4 +7,4 @@ package satellite_infos is
    function Get_Satellite_Name return String;
 
    function Get_Launch_Date return String;
-end satellite_infos;
+end Satellite.Infos;
